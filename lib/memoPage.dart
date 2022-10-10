@@ -35,7 +35,7 @@ class _MemoPageState extends State<MemoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('메모 어플')),
+      appBar: AppBar(title: Text('메모 어플!!')),
       body: Container(
         child: Center(
           child: memos.length == 0

@@ -113,3 +113,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
+
+// 디비 주소
+// https://dbexample-63606-default-rtdb.firebaseio.com/
+
