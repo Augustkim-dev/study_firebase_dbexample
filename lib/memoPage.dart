@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'memo.dart';
+import 'memoAddPage.dart';
 
 class MemoPage extends StatefulWidget {
   const MemoPage({Key? key}) : super(key: key);
@@ -44,10 +45,34 @@ class _MemoPageState extends State<MemoPage> {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2),
                   itemBuilder: (context, index) {
-                    return Card();
-                  }),
+                    return Card(
+                      child: GridTile(
+                        child: Container(
+                          padding: EdgeInsets.only(
+                            top: 20,
+                            bottom: 20,
+                          ),
+                          child: SizedBox(
+                            child: GestureDetector(
+                              onTap: () {},
+                              onLongPress: () {},
+                              child: Text(memos[index].content),
+                            ),
+                          ),
+                        ),
+                        header: Text(memos[index].title),
+                        footer: Text(memos[index].createTime.substring(0, 10)),
+                      ),
+                    );
+                  },
+                  itemCount: memos.length,
+                ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => MemoAddPage(reference!)));
+      }),
     );
   }
 }
