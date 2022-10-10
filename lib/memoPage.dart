@@ -69,10 +69,14 @@ class _MemoPageState extends State<MemoPage> {
                 ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => MemoAddPage(reference!)));
-      }),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => MemoAddPage(
+                      reference: reference!,
+                    )));
+          }),
     );
   }
 }
