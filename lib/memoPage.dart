@@ -48,6 +48,7 @@ class _MemoPageState extends State<MemoPage> {
                   itemBuilder: (context, index) {
                     return Card(
                       child: GridTile(
+                        // ignore: sort_child_properties_last
                         child: Container(
                           padding: EdgeInsets.only(
                             top: 20,
