@@ -1,3 +1,4 @@
+import 'package:chap_13_01/memoDetailPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -54,7 +55,20 @@ class _MemoPageState extends State<MemoPage> {
                           ),
                           child: SizedBox(
                             child: GestureDetector(
-                              onTap: () {},
+                              onTap: () async {
+                                Memo? memo = await Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            MemoDetailPage(
+                                                reference: reference!,
+                                                memo: memos[index])));
+                                if (memo != null) {
+                                  setState(() {
+                                    memos[index].title = memo.title;
+                                    memos[index].content = memo.content;
+                                  });
+                                }
+                              },
                               onLongPress: () {},
                               child: Text(memos[index].content),
                             ),
